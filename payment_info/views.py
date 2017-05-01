@@ -38,7 +38,7 @@ class PaymentInfo(Page):
 			'additional_points': sum([risk_points, amb_points]),
 			'points': sum([risk_points, pg_points, amb_points]),
 			'money': sum([risk_payoff, pg_payoff, amb_payoff]),
-			'takehome': sum([amb_payoff, risk_payoff, pg_payoff, Decimal(10)]),
+			'takehome': sum([amb_payoff, risk_payoff, pg_payoff, Decimal(self.session.config['participation_fee'])]),
 		}
 
 page_sequence = [PaymentInfo]
